@@ -12,6 +12,19 @@ namespace WcfMock
     [ServiceContract]
     public interface IService1
     {
+
+        [OperationContract]
+        double GetTheVolume(double width, double height, double length);
+
+        /// <summary>
+        /// Indsæt data til databasen
+        /// </summary>
+        /// <param name="volume"></param>
+        /// <param name="side"></param>
+        /// <returns></returns>
+        [OperationContract]
+        int InsertData(String request, double volume, double length, double width, double height);
+        
         /// <summary>
         /// Returnerer volumen af de tre parametrer
         /// </summary>
@@ -35,24 +48,24 @@ namespace WcfMock
 
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+    //[DataContract]
+    //public class CompositeType
+    //{
+    //    bool boolValue = true;
+    //    string stringValue = "Hello ";
 
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
+    //    [DataMember]
+    //    public bool BoolValue
+    //    {
+    //        get { return boolValue; }
+    //        set { boolValue = value; }
+    //    }
 
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
-    }
+    //    [DataMember]
+    //    public string StringValue
+    //    {
+    //        get { return stringValue; }
+    //        set { stringValue = value; }
+    //    }
+    //}
 }
